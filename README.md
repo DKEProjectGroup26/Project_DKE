@@ -1,4 +1,7 @@
 # Project_DKE
+
+---
+### Phase 1 
 Code to compute the chromatic number of a graph: 
 
 1) a simple lower bound algorithm
@@ -6,6 +9,7 @@ Code to compute the chromatic number of a graph:
 2) a simple upper  bound algorithm
  
 3) an algorithm calculating the exact chromatic number (which works only for small graphs).
+---
 
 
 
