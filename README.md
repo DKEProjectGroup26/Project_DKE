@@ -15,6 +15,8 @@ The following ready-to-compile piece of Java will read a graph into memory: Read
 `java ReadGraph graph.txt`
 
 
+* **Please use comments in your code, as everyone should understand and be able to explain every algorithm** 😊
+
 
 
 Webpage of Steven Kelk : http://skelk.sdf-eu.org/graphcolouring2018/
