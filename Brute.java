@@ -148,20 +148,26 @@ public class Brute
 
 
 				//Create a list with x random colors ( x is the current chromatic number's value)
+
 				int[] colors = new int[chromatic_number];
 				for (int i = 0; i<colors.length-1; i++){
 					colors[i] = randomNumber();
 
 				}
 
-				//Combinatorics : print number of combinations possible to give each vertex a color
-				int combi =  (int) Math.pow(n, chromatic_number);
+				//Combinatorics : number of possibilities to give each vertex a color
+				///Arrangements avec répétition !!! ( permutations with repetition )
 
-				System.out.println("number of combinations possible : "+combi);
+
+				int combi = (int) Math.pow(n, chromatic_number);
+
+
+				System.out.println("number of combinations possible with chromatic_number = "+chromatic_number+ " : "+combi);
 
 				//Assign a color to each vertex
 				System.out.println();
 				for (int i = 0; i < n ; i++){
+					vertices[i][1] = colors[0];
 					
 				}
 
