@@ -154,11 +154,17 @@ public class Brute
 
 				}
 
+				//Combinatorics : print number of combinations possible to give each vertex a color
+				int combi =  (int) Math.pow(n, chromatic_number);
+
+				System.out.println("number of combinations possible : "+combi);
+
 				//Assign a color to each vertex
+				System.out.println();
 				for (int i = 0; i < n ; i++){
 					
 				}
-				
+
 				if (DEBUG) System.out.println(Arrays.deepToString(vertices));
 
 
