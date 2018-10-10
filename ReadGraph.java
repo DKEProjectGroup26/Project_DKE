@@ -1,5 +1,7 @@
 import java.io.*;
 import java.util.*;
+import java.util.Arrays;
+import java.util.ArrayList;
 
 		class ColEdge
 			{
@@ -22,7 +24,7 @@ public class ReadGraph
 				System.exit(0);
 				}
 
-				
+			
 			String inputfile = args[0];
 			
 			boolean seen[] = null;
@@ -67,9 +69,10 @@ public class ReadGraph
 						m = Integer.parseInt( record.substring(8) );					
 						if(DEBUG) System.out.println(COMMENT + " Expected number of edges = "+m);
 						}
-
+             
+                   
 					e = new ColEdge[m];	
-												
+									
 					for( int d=0; d<m; d++)
 						{
 						if(DEBUG) System.out.println(COMMENT + " Reading edge "+(d+1));
@@ -122,11 +125,48 @@ public class ReadGraph
 			//! there will be n vertices in the graph, numbered 1 to n
 
 			//! INSERT YOUR CODE HERE!
+			/*Create an array matrix(adjacent matrix)
+			Use Integer instead of int to make the array can be transformed into ArrayList*/
+			Integer [][] matrix = new Integer[n][n];
+			//Initialize the chromatic number
+			int chromaticNumber = 0;
+			/*Because it's now Integer, which cannot be initialize into 0 automatically.
+			This step is to initialize it.*/
+			for(int i=0;i<n;i++){
+				Arrays.fill(matrix[i],0);
+			}
+			/*put values into matrix as rules of adjacent matrix, and to make it easier and less loops later,
+			let the values int the upper diagnal of the matrix.*/
+			for(int i=0;i<m;i++){
+				if(e[i].u<=e[i].v)
+					matrix[e[i].u-1][e[i].v-1]=1;
+				else
+					matrix[e[i].v-1][e[i].u-1]=1;
+			}
+			// i controls the columns and j controls the rows
+			for(int i=0; i<n;i++){
+				//matrix[i][i]is the colour that the vertax i+1 can choose
+				matrix[i][i]=1;
+				/*Use this for loop to check the vertax i+1 can't be in the same with which other vertax(by checking the column i),
+				and put the color the vertax i+1 can't be into the row j in ascending order */
+				for(int j=0;j<i;j++){
+					if(matrix[j][i]==1)
+						matrix[i][matrix[j][j]-1]=matrix[j][j];
+				}
+				//Transform array to ArrayList to find the index of 0 without any loop
+					ArrayList<Integer> list = new ArrayList<Integer>(Arrays.asList(matrix[i]));
+					// Using 0 is to find out which color that the vertax i+1 could be
+					int a =list.indexOf(0);
+					if(a<i)
+						matrix[i][i]=a+1;
+					//When there's no other 0 in the lower diagnal, then the color of vertax i+1 should be a new color
+					else
+						matrix[i][i]=i+1;
+					//Find out the maximum number in the diagnal line,and then it is the chromatic number
+					chromaticNumber = Math.max(chromaticNumber,matrix[i][i]);
+			}
 			
-			
-			
-			
-				
+			System.out.println("The chromatic number of this graph is "+chromaticNumber);		
 			
 		}
 
