@@ -20,7 +20,7 @@ The following ready-to-compile piece of Java will read a graph into memory: Read
 
 For resources, references, papers : [here](https://docs.google.com/document/d/13QhibDLM-73m38uh7lM35aTR0fpSnLDO_GMwSsSPhUM/edit?usp=sharing)
 
-Google Drive folder of the project : [here](https://drive.google.com/open?id=13QhibDLM-73m38uh7lM35aTR0fpSnLDO_GMwSsSPhUM)
+Google Drive folder of the project : [here](https://drive.google.com/open?id=0BwhbC493k-bdLS1EN3BmTlYxNFE)
 
 
 Webpage of Steven Kelk : http://skelk.sdf-eu.org/graphcolouring2018/
