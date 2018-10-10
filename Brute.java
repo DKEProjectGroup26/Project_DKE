@@ -1,6 +1,7 @@
 import java.io.*;
 import java.util.*;
 import java.util.Arrays; 
+import java.awt.Color;
 
 		class ColEdge
 			{
@@ -130,10 +131,8 @@ public class Brute
 				//m = # of edges
 
 				// list contataining the vertices. x = number of the vertex ; y = its color
-				// vertices[a][1] = number of vertex a
-				// vertices[a][2] = color of vertex a
-
-
+				// vertices[a][0] = number of vertex a
+				// vertices[a][1] = color of vertex a			
 				int[][] vertices = new int[n][2];
 
 				//Chromatic number to test
@@ -142,17 +141,38 @@ public class Brute
 
 				System.out.println("Assigning a number to each vertex...");
 				//Assign a number of every every vertex ( STARTING AT 1 )
-				for (int i = 1; i < n+1; i++){
-					vertices[i][0] = i ;
+				for (int i = 0; i < n ; i++){
+					vertices[i][0] = i+1 ;
 				}
+				System.out.println("Done.");
 
 				if (DEBUG) System.out.println(Arrays.deepToString(vertices));
-			
-			
-			
-			
 				
 			
+		}
+
+		/**Returns a random color.
+		@param
+		@return an object from the class "Color", chosen randomly ( https://docs.oracle.com/javase/7/docs/api/java/awt/Color.html )
+		**/ 
+		public static Color randomColor(){
+			Random rand = new Random();
+
+			//r,g,b will be a random number btwn 0 - 1 
+			float r = rand.nextFloat();
+			float g = rand.nextFloat();
+			float b = rand.nextFloat();
+
+			//convert to hex.code 
+			Color color1 = new Color(r,g,b);
+
+			if (DEBUG){ 
+			System.out.println("Colors : "+r);
+			System.out.println(g);
+			System.out.println(b);
+			System.out.println(color1.toString());
+			} return color1; 
+
 		}
 
 }
