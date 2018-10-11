@@ -155,7 +155,7 @@ public class Brute
 
 				}
 
-				//Combinatorics : number of possibilities to give each vertex a color
+				//combi : number of possibilities to give each vertex a color
 				///Arrangements avec répétition !!! ( permutations with repetition )
 
 
