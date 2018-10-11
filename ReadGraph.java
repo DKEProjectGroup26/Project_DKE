@@ -157,14 +157,20 @@ public class ReadGraph
 					ArrayList<Integer> list = new ArrayList<Integer>(Arrays.asList(matrix[i]));
 					// Using 0 is to find out which color that the vertax i+1 could be
 					int a =list.indexOf(0);
-					if(a<i)
+					if(a>=0){
+					 if(a<i)
 						matrix[i][i]=a+1;
-					//When there's no other 0 in the lower diagnal, then the color of vertax i+1 should be a new color
-					else
+					 //When there's no other 0 in the lower diagnal, then the color of vertax i+1 should be a new color
+					 else
 						matrix[i][i]=i+1;
+					}else{
+						matrix[i][i]=i+1;
+					}
 					//Find out the maximum number in the diagnal line,and then it is the chromatic number
 					chromaticNumber = Math.max(chromaticNumber,matrix[i][i]);
 			}
+			
+			
 			
 			System.out.println("The chromatic number of this graph is "+chromaticNumber);		
 			
